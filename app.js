@@ -6,6 +6,7 @@ const app = express();
 
 const PORT = process.env.PORT ?? 3000;
 
+// .
 config(app);
 
 app.use('/', mainRoute);
