@@ -1,21 +1,23 @@
-<form class="row g-3">
+<form class="row g-3" method="POST" action="/registration">
   <div class="col-12">
     <label for="inputName" class="form-label">Имя</label>
-    <input type="text" class="form-control" id="inputName">
+    <input type="text" name="name" class="form-control" id="inputName">
   </div>
   <div class="col-md-6">
     <label for="inputPassword4" class="form-label">Ел.Почта</label>
-    <input type="text" class="form-control" id="inputPassword4" placeholder="бибаибоба">
+    <input type="email" name="email" class="form-control" id="inputPassword4" placeholder="бибаибоба">
   </div>
   <div class="col-md-6">
     <label for="inputPassword" class="form-label">Пароль</label>
-    <input type="text" class="form-control" id="inputPassword" placeholder="гачимучи">
+    <input type="password" name="password" class="form-control" id="inputPassword" placeholder="гачимучи">
   </div>
   <div class="col-md-4">
     <label for="inputCity" class="form-label">Город</label>
-    <select id="inputCity" class="form-select">
+    <select id="inputCity" name="city" class="form-select">
       <option selected>Выберите...</option>
-      <option>...</option>
+      <option value="СПБ">СПБ</option>
+      <option value="МСК">МСК</option>
+      <option value="ЕКБ">ЕКБ</option>
     </select>
   </div>
   <div class="col-12">

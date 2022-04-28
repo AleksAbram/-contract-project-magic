@@ -20,7 +20,9 @@
       <div class="card_title">
         <h3>{{card.title}}</h3>
         <span class="card_price">{{card.price}} руб.</span>
+        {{#if @root.klient}}
         <a href="/shop" class="card_button">Корзина</a>
+        {{/if}}
       </div>
     </div> --}}
     <div class="card">
@@ -30,7 +32,9 @@
       <div class="card_title">
         <h3>MTG. Guilds of Ravnica. Booster Display</h3>
         <span class="card_price"> 15 000 руб.</span>
+        {{#if @root.klient}}
         <a href="/shop" class="card_button">Корзина</a>
+        {{/if}}
       </div>
     </div>
     <div class="card">
