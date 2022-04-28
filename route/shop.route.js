@@ -10,7 +10,7 @@ router.route('/shop')
 
     // Придумать логику временного сохранения купленных карточек для пользователя
     // Вернуть купленные карточки в переменную cards для отображения в корзине
-    return res.render('/show', { cards });
+    return res.render('shop');
   })
   .post(async (req, res) => {
     const user = req.session.uid;
