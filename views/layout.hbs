@@ -21,17 +21,17 @@
   <header class="header">
     <div class="wrapper">
       <div class="header__content">
-        <h1 class="logo">Карточная игра Magic: The Gathering</h1>
+        <h1 class="logo"><a href="/"> Карточная игра Magic: The Gathering</a> </h1>
         <nav>
           <ul class="menu">
-            {{#if isAuthorized}}
-            <li><a href="/account">{{user.firstname}}</a></li>
+            {{#if klient}}
+            <li><a href="/account">{{klient.firstname}}</a></li>
             <li><a href="/logout">Выйти</a></li>
+             <li><a href="/shop">Корзина</a></li>
             {{else}}
             <li><a href="/registration">Регистрация</a></li>
             <li><a href="/login">Войти</a></li>
             {{/if}}
-            <li><a href="/shop">Корзина</a></li>
           </ul>
         </nav>
       </div>
