@@ -1,3 +1,190 @@
-.header-buttons {
+* {
+  margin: 0;
+}
+
+
+html,
+body {
+  height: 100%;
+}
+
+
+body {
   display: flex;
-};
+  flex-direction: column;
+  justify-items: center;
+  font-family: 'Roboto', sans-serif;
+
+}
+
+.header {
+  padding: 24px;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.wrapper {
+  display: flex;
+  max-width: 800px;
+  width: 100%;
+}
+
+h1 {
+  font-size: 24px;
+  color: whitesmoke;
+  font-weight: bold;
+}
+
+ul {
+  display: flex;
+  flex-direction: row;
+  justify-items: flex-end;
+
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  padding: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 18px;
+  color: pink;
+}
+
+main {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  flex: 1;
+}
+
+footer {
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: deeppink;
+}
+
+.container {
+  display: flex;
+
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+}
+
+.filter {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+label {
+  margin: 10px;
+}
+
+.cards {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  grid-gap: 16px;
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 800px;
+  width: 100%;
+  
+}
+
+@media screen and(max-width: 648px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  border: 1px solid grey;
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
+  background: white;
+  transition: .3s ease-in;
+  
+}
+
+.card:hover {
+  border-color: deeppink;
+}
+
+.card img {
+  display: block;
+  width: 100%;
+}
+
+.card__image {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 200px;
+  width: 100%;
+}
+
+.card_title {
+  background: #fafafa;
+  padding: 15px 0;
+
+}
+
+.card_title h3 {
+  font-size: 18px;
+  font-weight: 400;
+  color: #444444;
+  margin: 0 0 10px 0;
+}
+
+.card_price {
+  font-size: 16px;
+  color: deeppink;
+  display: block;
+  margin-bottom: 12px;
+  font-weight: bold;
+}
+
+.card_button {
+  text-decoration: none;
+  display: inline-block;
+  padding: 0 15px;
+  background: #161313;
+  color: deeppink;
+   ext-transform: uppercase;
+  font-size: 16px;
+  line-height: 32px;
+  transition: .3s ease-in;
+}
+
+.card:hover .card_button {
+  background: #fc5a5a;
+  color: white;
+}
