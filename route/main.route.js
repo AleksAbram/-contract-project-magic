@@ -1,14 +1,40 @@
 const router = require('express').Router();
-const { User } = require('../db/models');
+const { Op } = require('sequelize');
+const { Card } = require('../db/models');
+const { cities } = require('../cities');
 
 router.get('/', async (req, res) => {
-  // console.log('=======>',req.session.uid);
-  // если id пользователя лежит в сессии - находим его в бд
-  // const user = req.session.uid && await User.findByPk(req.session.uid.id);
-  const klient = req.session.uid;
-  // console.log();
-  res.render('cards', {
-    klient,
+  const user = req.session.uid;
+  if (!user) {
+    return res.redirect('/login');
+  }
+  const cards = await Card.findAll({ where: { is_sold: false } });
+  return res.render('cards', {
+    user,
+    cards,
+    cities,
+  });
+}).post('/', async (req, res) => {
+  const user = req.session.uid;
+  if (!user) {
+    return res.redirect('/login');
+  }
+  const { search, city } = req.body;
+  const where = { is_sold: false };
+  if (search || city) {
+    where[Op.or] = {};
+    if (search) {
+      where[Op.or].title = { [Op.like]: search };
+    }
+    if (city) {
+      where[Op.or].city = city;
+    }
+  }
+  const cards = await Card.findAll({ where });
+  return res.render('cards', {
+    user,
+    cards,
+    cities,
   });
 });
 

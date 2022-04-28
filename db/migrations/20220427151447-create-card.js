@@ -7,6 +7,10 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
+      title: {
+        allowNull: false,
+        type: Sequelize.TEXT,
+      },
       img: {
         allowNull: false,
         type: Sequelize.TEXT,
@@ -15,9 +19,14 @@ module.exports = {
         allowNull: false,
         type: Sequelize.INTEGER,
       },
-      degree: {
+      condition: {
         allowNull: false,
-        type: Sequelize.INTEGER,
+        type: Sequelize.TEXT,
+      },
+      is_sold: {
+        allowNull: false,
+        type: Sequelize.BOOLEAN,
+        defaultValue: false,
       },
       user_id: {
         references: {
@@ -27,7 +36,7 @@ module.exports = {
         allowNull: false,
         type: Sequelize.INTEGER,
       },
-      user_city: {
+      city: {
         allowNull: false,
         type: Sequelize.TEXT,
       },

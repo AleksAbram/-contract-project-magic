@@ -1,0 +1,58 @@
+<h1>Профиль</h1>
+
+<div class="account">
+  <div class="cards">
+    {{#each cards}}
+    <div class="card">
+      <div style="background-image: url({{this.img}});" class="card__image"></div>
+      <div class="card__content">
+        <div class="card__title">{{this.title}}</div>
+        <div class="row row--between">
+          <div class="label">Износ:</div>
+          <div class="card__condition">{{this.condition}}</div>
+        </div>
+        <div class="row row--between">
+          <div class="label">Город:</div>
+          <div class="card__condition">{{this.city}}</div>
+        </div>
+        <div class="row row--between">
+          <div class="label">Цена:</div>
+          <div class="card__price">{{this.price}}</div>
+        </div>
+        <form action="/cards" method="post">
+          <input type="text" name="id" value="{{this.id}}" hidden>
+          <button class="button button--error">Удалить</button>
+        </form>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+
+  <form class="form" action="/cards" method="POST">
+    <h2>Создать карточку</h2>
+    <div class="row row--between">
+      <label for="card__title" class="label">Название:</label>
+      <input id="card__title" class="input" name="title" type="text" placeholder="Название карточки" tabindex="1" required>
+    </div>
+    <div class="row row--between">
+      <label for="card__img" class="label">Картинка:</label>
+      <input id="card__img" class="input" name="img" type="text" placeholder="Ссылка на картинку" tabindex="1" required>
+    </div>
+    <div class="row row--between">
+      <label for="card__price" class="label">Цена:</label>
+      <input id="card__price" class="input" name="price" type="text" placeholder="Стоимость карточки" tabindex="1" required>
+    </div>
+    <div class="row row--between">
+    <label for="card__condition" class="label">Износ</label>
+    <select id="card__condition" class="input" name="condition" tabindex="4" required>
+      <option selected disabled>Выберите износ...</option>
+      <option value="Низкая">Низкая</option>
+      <option value="Средняя">Средняя</option>
+      <option value="Высокая">Высокая</option>
+    </select>
+  </div>
+    <div class="row row--right">
+      <button id="login__button" class="button" type="submit" tabindex="3">Создать</button>
+    </div>
+  </form>
+</div>

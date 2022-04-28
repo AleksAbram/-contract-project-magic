@@ -1,0 +1,31 @@
+<h1>Корзина</h1>
+
+<div class="shop">
+  <div class="cards">
+    {{#each cards}}
+    <div class="card">
+      <div style="background-image: url({{this.img}});" class="card__image"></div>
+      <div class="card__content">
+        <div class="card__title">{{this.title}}</div>
+        <div class="row row--between">
+          <div class="label">Износ:</div>
+          <div class="card__condition">{{this.condition}}</div>
+        </div>
+        <div class="row row--between">
+          <div class="label">Город:</div>
+          <div class="card__condition">{{this.city}}</div>
+        </div>
+        <div class="row row--between">
+          <div class="label">Цена:</div>
+          <div class="card__price">{{this.price}}</div>
+        </div>
+        <form action="/shop" method="post">
+          <input type="text" name="id" value="{{this.id}}" hidden>
+          <button class="button button--error">Удалить</button>
+        </form>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+
+</div>

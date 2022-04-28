@@ -1,142 +1,49 @@
-<div class="container">
-  <div class="filter">
-    <form action="/" method="GET">
-      <label>Фильтр</label>
-      <input placeholder="Введите название" type="search" name="card_title">
-      <label>Город</label>
-      <select multiple size="1" name="sity_id">
-        <option>Москва</option>
-        <option>Санкт-Петербург</option></select>
-    </form>
+<h1>Главная</h1>
 
+<div class="cards-filter">
+  <form class="form form--full-width" action="/" method="POST">
+    <div class="row row--between">
+      <div class="row">
+        <label for="cards__filter__search" class="label">Поиск по названию</label>
+        <input id="cards__filter__search" class="input" placeholder="Поиск" type="text" name="search" tabindex="1">
+      </div>
+      <div class="row">
+        <label for="cards__filter__city" class="label">Город</label>
+        <select id="cards__filter__city" class="input" name="city" tabindex="2">
+          <option selected disabled>Выберите город...</option>
+          {{#each cities}}
+          <option value="{{this}}">{{this}}</option>
+          {{/each}}
+        </select>
+        <button type="submit" class="button" tabindex="3">ок</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div class="cards">
+  {{#each cards}}
+  <div class="card">
+    <div style="background-image: url({{this.img}});" class="card__image"></div>
+    <div class="card__content">
+      <div class="card__title">{{this.title}}</div>
+      <div class="row row--between">
+        <div class="label">Износ:</div>
+        <div class="card__condition">{{this.condition}}</div>
+      </div>
+      <div class="row row--between">
+        <div class="label">Город:</div>
+        <div class="card__condition">{{this.city}}</div>
+      </div>
+      <div class="row row--between">
+        <div class="label">Цена:</div>
+        <div class="card__price">{{this.price}}</div>
+      </div>
+      <form action="/shop" method="post">
+        <input type="text" name="id" value="{{this.id}}" hidden>
+        <button class="button button--shop">Купить</button>
+      </form>
+    </div>
   </div>
-
-  <div class="cards">
-
-    {{!-- {{#each card}} --}}
-
-    {{!-- <div class="card">
-      <img src="{{card.img}}">
-      <div class="card_title">
-        <h3>{{card.title}}</h3>
-        <span class="card_price">{{card.price}} руб.</span>
-        {{#if @root.klient}}
-        <a href="/shop" class="card_button">Корзина</a>
-        {{/if}}
-      </div>
-    </div> --}}
-    <div class="card">
-      <div
-        style="background-image: url(https://hobbygames.cdnvideo.ru/image/cache/hobbygames_beta/data/Wizarsds_Of_the_Coast/Magic_the_Gathering/GuildsofRavnika/MTG_Guild_of_Ravnica_Display_Eng-209x273.jpg);"
-        class="card__image"></div>
-      <div class="card_title">
-        <h3>MTG. Guilds of Ravnica. Booster Display</h3>
-        <span class="card_price"> 15 000 руб.</span>
-        {{#if @root.klient}}
-        <a href="/shop" class="card_button">Корзина</a>
-        {{/if}}
-      </div>
-    </div>
-    <div class="card">
-      <div
-        style="background-image: url(https://hobbygames.cdnvideo.ru/image/cache/hobbygames_beta/data/Wizarsds_Of_the_Coast/Magic_the_Gathering/GuildsofRavnika/MTG_Guild_of_Ravnica_Display_Eng-209x273.jpg);"
-        class="card__image"></div>
-      <div class="card_title">
-        <h3>MTG. Guilds of Ravnica. Booster Display</h3>
-        <span class="card_price"> 15 000 руб.</span>
-        <a href="/shop" class="card_button">Корзина</a>
-      </div>
-    </div>
-    <div class="card">
-      <div
-        style="background-image: url(https://hobbygames.cdnvideo.ru/image/cache/hobbygames_beta/data/Wizarsds_Of_the_Coast/Magic_the_Gathering/GuildsofRavnika/MTG_Guild_of_Ravnica_Display_Eng-209x273.jpg);"
-        class="card__image"></div>
-      <div class="card_title">
-        <h3>MTG. Guilds of Ravnica. Booster Display</h3>
-        <span class="card_price"> 15 000 руб.</span>
-        <a href="/shop" class="card_button">Корзина</a>
-      </div>
-    </div>
-    <div class="card">
-      <div
-        style="background-image: url(https://hobbygames.cdnvideo.ru/image/cache/hobbygames_beta/data/Wizarsds_Of_the_Coast/Magic_the_Gathering/GuildsofRavnika/MTG_Guild_of_Ravnica_Display_Eng-209x273.jpg);"
-        class="card__image"></div>
-      <div class="card_title">
-        <h3>MTG. Guilds of Ravnica. Booster Display</h3>
-        <span class="card_price"> 15 000 руб.</span>
-        <a href="/shop" class="card_button">Корзина</a>
-      </div>
-    </div>
-    <div class="card">
-      <div
-        style="background-image: url(https://hobbygames.cdnvideo.ru/image/cache/hobbygames_beta/data/Wizarsds_Of_the_Coast/Magic_the_Gathering/GuildsofRavnika/MTG_Guild_of_Ravnica_Display_Eng-209x273.jpg);"
-        class="card__image"></div>
-      <div class="card_title">
-        <h3>MTG. Guilds of Ravnica. Booster Display</h3>
-        <span class="card_price"> 15 000 руб.</span>
-        <a href="/shop" class="card_button">Корзина</a>
-      </div>
-    </div>
-    <div class="card">
-      <div
-        style="background-image: url(https://hobbygames.cdnvideo.ru/image/cache/hobbygames_beta/data/Wizarsds_Of_the_Coast/Magic_the_Gathering/GuildsofRavnika/MTG_Guild_of_Ravnica_Display_Eng-209x273.jpg);"
-        class="card__image"></div>
-      <div class="card_title">
-        <h3>MTG. Guilds of Ravnica. Booster Display</h3>
-        <span class="card_price"> 15 000 руб.</span>
-        <a href="/shop" class="card_button">Корзина</a>
-      </div>
-    </div>
-    <div class="card">
-      <div
-        style="background-image: url(https://hobbygames.cdnvideo.ru/image/cache/hobbygames_beta/data/Wizarsds_Of_the_Coast/Magic_the_Gathering/GuildsofRavnika/MTG_Guild_of_Ravnica_Display_Eng-209x273.jpg);"
-        class="card__image"></div>
-      <div class="card_title">
-        <h3>MTG. Guilds of Ravnica. Booster Display</h3>
-        <span class="card_price"> 15 000 руб.</span>
-        <a href="/shop" class="card_button">Корзина</a>
-      </div>
-    </div>
-    <div class="card">
-      <div
-        style="background-image: url(https://hobbygames.cdnvideo.ru/image/cache/hobbygames_beta/data/Wizarsds_Of_the_Coast/Magic_the_Gathering/GuildsofRavnika/MTG_Guild_of_Ravnica_Display_Eng-209x273.jpg);"
-        class="card__image"></div>
-      <div class="card_title">
-        <h3>MTG. Guilds of Ravnica. Booster Display</h3>
-        <span class="card_price"> 15 000 руб.</span>
-        <a href="/shop" class="card_button">Корзина</a>
-      </div>
-    </div>
-    <div class="card">
-      <div
-        style="background-image: url(https://hobbygames.cdnvideo.ru/image/cache/hobbygames_beta/data/Wizarsds_Of_the_Coast/Magic_the_Gathering/GuildsofRavnika/MTG_Guild_of_Ravnica_Display_Eng-209x273.jpg);"
-        class="card__image"></div>
-      <div class="card_title">
-        <h3>MTG. Guilds of Ravnica. Booster Display</h3>
-        <span class="card_price"> 15 000 руб.</span>
-        <a href="/shop" class="card_button">Корзина</a>
-      </div>
-    </div>
-    <div class="card">
-      <div
-        style="background-image: url(https://hobbygames.cdnvideo.ru/image/cache/hobbygames_beta/data/Wizarsds_Of_the_Coast/Magic_the_Gathering/GuildsofRavnika/MTG_Guild_of_Ravnica_Display_Eng-209x273.jpg);"
-        class="card__image"></div>
-      <div class="card_title">
-        <h3>MTG. Guilds of Ravnica. Booster Display</h3>
-        <span class="card_price"> 15 000 руб.</span>
-        <a href="/shop" class="card_button">Корзина</a>
-      </div>
-    </div>
-    <div class="card">
-      <div
-        style="background-image: url(https://hobbygames.cdnvideo.ru/image/cache/hobbygames_beta/data/Wizarsds_Of_the_Coast/Magic_the_Gathering/GuildsofRavnika/MTG_Guild_of_Ravnica_Display_Eng-209x273.jpg);"
-        class="card__image"></div>
-      <div class="card_title">
-        <h3>MTG. Guilds of Ravnica. Booster Display</h3>
-        <span class="card_price"> 15 000 руб.</span>
-        <a href="/shop" class="card_button">Корзина</a>
-      </div>
-    </div>
-    {{!-- {{/each}} --}}
-  </div>
+  {{/each}}
 </div>
