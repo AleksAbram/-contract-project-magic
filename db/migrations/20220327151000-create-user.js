@@ -1,4 +1,3 @@
-"use strict";
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable("Users", {
@@ -20,7 +19,7 @@ module.exports = {
         allowNull: false,
         type: Sequelize.TEXT,
       },
-      city: {
+      user_city: {
         allowNull: false,
         type: Sequelize.TEXT,
       },

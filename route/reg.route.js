@@ -2,7 +2,8 @@ const router = require('express').Router();
 const bcrypt = require('bcrypt');
 const { User } = require('../db/models');
 
-router.route('/registration')
+router
+  .route('/registration')
   .get((req, res) => {
     res.render('registration');
   })
@@ -25,11 +26,11 @@ router.route('/registration')
         email,
         // хешируем пароль (нельзя хранить пароли в БД в открытом виде)
         password: await bcrypt.hash(password, 10),
-        city,
+        user_city: city,
       });
 
       // сразу же авторизируем пользователя (кладём id в сессию)
-    //   req.session.uid = newUser.id;
+      req.session.uid = newUser.id;
       res.redirect('/login');
     }
   });
