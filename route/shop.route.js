@@ -10,8 +10,9 @@ router.route('/shop')
 
     // Придумать логику временного сохранения купленных карточек для пользователя
     // Вернуть купленные карточки в переменную cards для отображения в корзине
-    return res.render('shop');
+    return res.render('shop', {user: req.session.uid});
   })
+  
   .post(async (req, res) => {
     const user = req.session.uid;
     if (!user) {
@@ -27,4 +28,10 @@ router.route('/shop')
     // здесь будет логика после того как пользователь оформит заказ
     return res.redirect('/');
   });
+
+  router.post('/shop/getCards', async (req, res) => {
+    console.log(req.body.idNik[0]);
+    
+    res.send('hello');
+  })
 module.exports = router;

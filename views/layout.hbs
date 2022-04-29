@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="/styles/controls.css">
   <link rel="stylesheet" href="/styles/pages.css">
   <title>Magic: The Gathering</title>
+  <script defer src="/application.js"></script>
 </head>
 
 <body>
@@ -29,7 +30,7 @@
           {{#if user}}
           <a href="/account">{{user.username}}</a>
           <a href="/logout">Выйти</a>
-          <a href="/shop">Корзина</a>
+          <a href="/shop" id="magaz">Корзина</a>
           {{else}}
           <a href="/registration">Регистрация</a>
           <a href="/login">Войти</a>
