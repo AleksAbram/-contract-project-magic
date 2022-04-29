@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   User.init({
-    firstname: {
+    username: {
       allowNull: false,
       type: DataTypes.TEXT,
     },
@@ -26,9 +26,9 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       type: DataTypes.TEXT,
     },
-    user_city: {
+    city: {
       allowNull: false,
-      type: DataTypes.INTEGER,
+      type: DataTypes.TEXT,
     },
   }, {
     sequelize,

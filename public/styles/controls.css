@@ -1,0 +1,41 @@
+.form {
+  padding: 16px;
+  display: grid;
+  grid-gap: 16px;
+  flex-direction: column;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 16px;
+  max-width: 400px;
+  width: 100%;
+}
+
+.form--full-width {
+  max-width: none;
+}
+
+.label {
+  padding-right: 16px;
+  font-size: 14px;
+  color: grey;
+}
+
+.input {
+  margin: 0;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
+  font-size: 14px;
+  background-color: transparent;
+  border: 1px solid grey;
+  border-radius: 8px;
+  outline: none;
+  position: relative;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
+  cursor: text;
+  min-width: 16px;
+  max-width: 250px;
+  width: 100%;
+}

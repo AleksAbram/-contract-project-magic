@@ -1,26 +1,31 @@
-<form class="row g-3" method="POST" action="/registration">
-  <div class="col-12">
-    <label for="inputName" class="form-label">Имя</label>
-    <input type="text" name="name" class="form-control" id="inputName">
+<form class="form" action="/registration" method="POST">
+  <div class="row row--between">
+    <label for="registration__username" class="label">Имя:</label>
+    <input id="registration__username" class="input" name="username" type="text" placeholder="Имя пользователя"  tabindex="1" value="{{username}}" required>
   </div>
-  <div class="col-md-6">
-    <label for="inputPassword4" class="form-label">Ел.Почта</label>
-    <input type="email" name="email" class="form-control" id="inputPassword4" placeholder="бибаибоба">
+  <div class="row row--between">
+    <label for="registration__email" class="label">E-mail:</label>
+    <input id="registration__email" class="input" name="email" type="email" placeholder="E-mail" tabindex="2" value="{{email}}" required>
   </div>
-  <div class="col-md-6">
-    <label for="inputPassword" class="form-label">Пароль</label>
-    <input type="password" name="password" class="form-control" id="inputPassword" placeholder="гачимучи">
+  <div class="row row--between">
+    <label for="registration__password" class="label">Пароль:</label>
+    <input id="registration__password" class="input" name="password" type="password" placeholder="Пароль" tabindex="3" required>
   </div>
-  <div class="col-md-4">
-    <label for="inputCity" class="form-label">Город</label>
-    <select id="inputCity" name="city" class="form-select">
-      <option selected>Выберите...</option>
-      <option value="СПБ">СПБ</option>
-      <option value="МСК">МСК</option>
-      <option value="ЕКБ">ЕКБ</option>
+  <div class="row row--between">
+    <label for="registration__city" class="label">Город</label>
+    <select id="registration__city" class="input" name="city" tabindex="4" required>
+      <option selected disabled>Выберите город...</option>
+      {{#each cities}}
+      <option value="{{this}}">{{this}}</option>
+      {{/each}}
     </select>
   </div>
-  <div class="col-12">
-    <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
+  {{#if error}}
+  <div class="row">
+    <div class="error">{{error}}</div>
+  </div>
+  {{/if}}
+  <div class="row row--right">
+    <button type="submit" class="button" tabindex="5">Регистрация</button>
   </div>
 </form>

@@ -1,0 +1,31 @@
+.row {
+  display: flex;
+  align-items: center;
+}
+
+.row--center {
+  justify-content: center;
+}
+.row--between {
+  justify-content: space-between;
+}
+.row--right {
+  justify-content: flex-end;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.col--center {
+  align-items: center;
+}
+
+.error {
+  color: rgb(214, 79, 79);
+}
+
+h1 {
+  padding-bottom: 16px;
+}

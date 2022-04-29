@@ -1,11 +1,18 @@
-<form action="/login" method="POST">
-  <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Ел.Почта</label>
-    <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+<form class="form" action="/login" method="POST">
+  <div class="row row--between">
+    <label for="login__email" class="label">E-mail:</label>
+    <input id="login__email" class="input" name="email" type="email" tabindex="1" placeholder="E-mail" value="{{email}}" required>
   </div>
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Пароль</label>
-    <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+  <div class="row row--between">
+    <label for="login__password" class="label">Пароль:</label>
+    <input id="login__password" class="input" name="password" type="password" placeholder="Пароль" tabindex="2" required>
   </div>
-  <button type="submit" class="btn btn-primary">Войти</button>
+  {{#if error}}
+  <div class="row">
+    <div class="error">{{error}}</div>
+  </div>
+  {{/if}}
+  <div class="row row--right">
+    <button id="login__button" class="button" type="submit" tabindex="3">Войти</button>
+  </div>
 </form>

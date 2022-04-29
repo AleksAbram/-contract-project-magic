@@ -6,33 +6,34 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  {{!--
-  <link rel="stylesheet" href="/styles/bootstrap.css"> --}}
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap"
     rel="stylesheet">
 
   <link rel="stylesheet" href="/styles/style.css">
-  <title>magic-the-gathering</title>
+  <link rel="stylesheet" href="/styles/misc.css">
+  <link rel="stylesheet" href="/styles/buttons.css">
+  <link rel="stylesheet" href="/styles/cards.css">
+  <link rel="stylesheet" href="/styles/controls.css">
+  <link rel="stylesheet" href="/styles/pages.css">
+  <title>Magic: The Gathering</title>
 </head>
 
 <body>
   <header class="header">
     <div class="wrapper">
       <div class="header__content">
-        <h1 class="logo"><a href="/"> Карточная игра Magic: The Gathering</a> </h1>
-        <nav>
-          <ul class="menu">
-            {{#if klient}}
-            <li><a href="/account">{{klient.firstname}}</a></li>
-            <li><a href="/logout">Выйти</a></li>
-             <li><a href="/shop">Корзина</a></li>
-            {{else}}
-            <li><a href="/registration">Регистрация</a></li>
-            <li><a href="/login">Войти</a></li>
-            {{/if}}
-          </ul>
+        <a href="/" class="logo">Карточная игра Magic: The Gathering</a>
+        <nav class="navigation">
+          {{#if user}}
+          <a href="/account">{{user.username}}</a>
+          <a href="/logout">Выйти</a>
+          <a href="/shop">Корзина</a>
+          {{else}}
+          <a href="/registration">Регистрация</a>
+          <a href="/login">Войти</a>
+          {{/if}}
         </nav>
       </div>
     </div>

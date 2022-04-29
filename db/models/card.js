@@ -14,6 +14,10 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Card.init({
+    title: {
+      allowNull: false,
+      type: DataTypes.TEXT,
+    },
     img: {
       allowNull: false,
       type: DataTypes.TEXT,
@@ -22,9 +26,14 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       type: DataTypes.INTEGER,
     },
-    degree: {
+    condition: {
       allowNull: false,
-      type: DataTypes.INTEGER,
+      type: DataTypes.TEXT,
+    },
+    is_sold: {
+      allowNull: false,
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
     },
     user_id: {
       references: {
@@ -34,11 +43,10 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       type: DataTypes.INTEGER,
     },
-    user_city: {
+    city: {
       allowNull: false,
       type: DataTypes.TEXT,
     },
-
   }, {
     sequelize,
     modelName: 'Card',
