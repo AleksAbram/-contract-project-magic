@@ -24,12 +24,12 @@
 <div class="cards">
   {{#each cards}}
   <div class="card">
-    <div style="background-image: url({{this.img}});" class="card__image"></div>
+    <div style="background-image: url({{this.img}});" class="card__image" ></div>
     <div class="card__content">
-      <div class="card__title">{{this.title}}</div>
+      <div class="card__title" >{{this.title}}</div>
       <div class="row row--between">
         <div class="label">Износ:</div>
-        <div class="card__condition">{{this.condition}}</div>
+        <div class="card__condition" >{{this.condition}}</div>
       </div>
       <div class="row row--between">
         <div class="label">Город:</div>
@@ -37,11 +37,11 @@
       </div>
       <div class="row row--between">
         <div class="label">Цена:</div>
-        <div class="card__price">{{this.price}}</div>
+        <div class="card__price" >{{this.price}}</div>
       </div>
       <form action="/shop" method="post">
-        <input type="text" name="id" value="{{this.id}}" hidden>
-        <button class="button button--shop">Купить</button>
+        <button type="submit" class="button button--shop" data-cardid="{{this.id}}" 
+        data-cardcity="{{this.city}}" data-cardimg="{{this.img}}" data-cardtitle="{{this.title}}" data-cardcond="{{this.condition}}" data-cardprice="{{this.price}}" >Купить</button>
       </form>
     </div>
   </div>
